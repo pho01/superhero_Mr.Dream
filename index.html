@@ -2,12 +2,59 @@
 
 <html>
  <head>
-  <title></title>
+  <title>Mr.Dream</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+
 
 </head>
 
 <body>
+  <a href="textpage.html">
+  <div class="navigation-icon"></div>
+  <div class="navigation-icon"></div>
+  <div class="navigation-icon"></div>
+</a>
+
+  <img class="logo" src="web-gif.gif" usemap="#image-map">
+  <div class="popup" onclick="myFunction()">
+  <map name="image-map">
+<area shape="circle" coords="1500 275 20">
+</map>
+ <span class="popuptext" id="myPopup">Dr.Dream</span>
+</div>
+
+  <div class="home_background"></div>
+  <div>
+    <img id="scroll-1"class="insidecircle-1" src="web-gif-1.gif">
+  </div>
+
+  <div class="island">
+    <img src="pic_1.jpg" style="width:100%; height:100%;">
+  </div>
+
+
+  <div class="home_background"></div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    window.onscroll = function() {myFunction()};
+
+    function myFunction() {
+     if (document.body.scrollTop >100|| document.documentElement.scrollTop >100) {
+        document.getElementById("scroll-1").className = "afterscroll";
+    } else {
+        document.getElementById("scroll-1").className = "";
+    }
+
+     var popup = document.getElementById("myPopup");
+      popup.classList.toggle("show");
+
+  }
+
+
+    </script>
+
 
 </body>
 
