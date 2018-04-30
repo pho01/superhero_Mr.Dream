@@ -136,6 +136,81 @@ h5{
   }
 }
 
+.posterman{
+  width:25%;
+  height:auto;
+  position:absolute;
+  animation: flow 30s infinite linear;
+}
+.posterman2{
+  width:25%;
+  height:auto;
+  position:absolute;
+  animation: flow2 30s infinite linear;
+}
+@keyframes flow {
+  0%{
+    top:40%;
+    left:100%;
+  }
+  10%{
+    top:5%;
+    left:50%;
+  }
+  20%{
+    top:20%;
+    left:-30%;
+  }
+  25%{
+    top:50%;
+    left:-30%;
+  }
+  50%{
+    top:100%;
+    left:-100%;
+  }
+  75%{
+    top:300%;
+    left:-100%;
+
+  }
+  100%{
+    top:50%;
+    left:-100%;
+  }
+}
+@keyframes flow2 {
+  0%{
+    top:0;
+    left:-100%;
+  }
+  10%{
+    top:0%;
+    left:-100%;
+  }
+  25%{
+    top:20%;
+    left:0;
+  }
+  30%{
+    top:70%;
+    left:10%;
+  }
+  50%{
+    top:100%;
+    left:10%;
+  }
+  75%{
+    top:300%;
+    left:60%;
+
+  }
+  100%{
+    top:50%;
+    left:90%;
+  }
+}
+
 .page2-body{
   background-color: white;
   margin-left:12%;
