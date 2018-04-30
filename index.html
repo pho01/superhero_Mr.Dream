@@ -9,48 +9,174 @@
 </head>
 
 <body>
-  <a href="textpage.html">
-  <div class="navigation-icon"></div>
-  <div class="navigation-icon"></div>
-  <div class="navigation-icon"></div>
-</a>
+  <style media="screen">
+  body{
+    background-image: url(night.jpg);
+    background-repeat: repeat;
+    display:block;
+    justify-content: center;
+  }
 
-  <img class="logo" src="web-gif.gif" usemap="#image-map">
-  <div class="popup" onclick="myFunction()">
-  <map name="image-map">
-<area shape="circle" coords="1500 275 20">
-</map>
- <span class="popuptext" id="myPopup">Dr.Dream</span>
+  </style>
+  <a href="textpage.html" class="logolink">
+  <img src="web-gif.gif" class="logo">
+</a>
+<div class="type-js headline">
+  <h1 class="text-js">Dr.Dream</h1>
 </div>
 
-  <div class="home_background"></div>
-  <div>
-    <img id="scroll-1"class="insidecircle-1" src="web-gif-1.gif">
+<div class="container cf">
+  <div class="animation-element bounce-up cf">
+    <div class="subject">
+    <h5 class="title">OBJECTIVE</h3>
+    <div class="content">
+      The event first happened in late 1996, a woman’s sweet dream was interrupted while she was sleeping at the midnight, then, she saw her sweet dream was eaten by a human-like something. After that, more and more similar situations were reported to the police successively. Therefore, National Security Agency assigned special detective PeiJung to deal with this freak condition. 21 years have passed away though, Mr.Dream has not even caught once. However, detective PeiJung gets the profound understanding toward Mr.Dream based on the 21 years research.
+    </div>
   </div>
-
-  <div class="island">
-    <img src="pic_1.jpg" style="width:100%; height:100%;">
   </div>
+</div>
+
+<div class="container cf">
+  <div class="animation-element bounce-up cf">
+    <div class="subject" style="background-image:url(night.jpg);background-size:cover;border:0;">
+    <h5 class="title">STORY</h3>
+    <div class="content">
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="container cf">
+  <div class="animation-element bounce-up cf">
+    <div class="subject" style="background-image:url(pic_1.jpg);background-size:cover;">
+    <h5 class="title">CITY OF RESIDENCE</h3>
+    <div class="content" style="margin-bottom:50%;margin-top:10%;">
+      Mr.Dream does not have a permanent home; however, his trace was discovered mostly around the few islands in the Seto Inland Sea, the body of water separating Honshu, Shikoku, and Kyushu, three of the four main islands of Japan.
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="container cf">
+  <div class="animation-element bounce-up cf">
+    <div class="subject">
+    <h5 class="title">PERSONALITY ANALYSIS</h3>
+    <div class="content">
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="container cf">
+  <div class="animation-element bounce-up cf">
+    <div class="subject" style="background-image:url(night.jpg);background-size:cover;border:0;">
+    <h5 class="title">SUPERPOWER</h3>
+    <div class="content">
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="container cf">
+  <div class="animation-element bounce-up cf">
+    <div class="subject">
+    <h5 class="title">ENEMY</h3>
+    <div class="content">
+      People who stay up late, especially the increasing number of younger people who don’t sleep at night.
+    The phenomenon not only gains the risk he exposes himself in front of human being during the task, but also he will lose his energy source.
+    <div class="enemyimage">
+      <div class="animation-test element-to-hide">
+    <img src="enemy-1.png" class="enemy" alt="enemy-img" style="width:30%;height:auto;">
+    <img src="enemy-2.png" class="enemy" alt="enemy-img" style="width:30%;height:auto;margin-left:-5%;">
+    <img src="enemy-3.png" class="enemy" alt="enemy-img" style="width:44%;height:auto;margin-left:-4%;margin-bottom:-4%;"></div>
+      </div>
+    </div>
+    </div>
+  </div>
+  </div>
+</div>
 
 
-  <div class="home_background"></div>
+
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <script type="text/javascript">
-    window.onscroll = function() {myFunction()};
-
-    function myFunction() {
-     if (document.body.scrollTop >100|| document.documentElement.scrollTop >100) {
-        document.getElementById("scroll-1").className = "afterscroll";
-    } else {
-        document.getElementById("scroll-1").className = "";
+    function autoType(elementClass, typingSpeed){
+    var thhis = $(elementClass);
+    thhis.css({
+     "position": "relative",
+     "display": "inline-block"
+    });
+   thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+   thhis = thhis.find(".text-js");
+   var text = thhis.text().trim().split('');
+   var amntOfChars = text.length;
+   var newString = "";
+   thhis.text("|");
+   setTimeout(function(){
+    thhis.css("opacity",1);
+    thhis.prev().removeAttr("style");
+    thhis.text("");
+    for(var i = 0; i < amntOfChars; i++){
+      (function(i,char){
+        setTimeout(function() {
+          newString += char;
+          thhis.text(newString);
+        },i*typingSpeed);
+      })(i+1,text[i]);
     }
+  },1500);
+}
+$(document).ready(function(){
+  autoType(".type-js",200);
+});
 
-     var popup = document.getElementById("myPopup");
-      popup.classList.toggle("show");
+var $animation_elements = $('.animation-element');
+var $window = $(window);
 
-  }
+function check_if_in_view() {
+  var window_height = $window.height();
+  var window_top_position = $window.scrollTop();
+  var window_bottom_position = (window_top_position + window_height);
+
+  $.each($animation_elements, function() {
+    var $element = $(this);
+    var element_height = $element.outerHeight();
+    var element_top_position = $element.offset().top;
+    var element_bottom_position = (element_top_position + element_height);
+
+    //check to see if this current container is within viewport
+    if ((element_bottom_position >= window_top_position) &&
+      (element_top_position <= window_bottom_position)) {
+      $element.addClass('in-view');
+    } else {
+      $element.removeClass('in-view');
+    }
+  });
+}
+
+$window.on('scroll resize', check_if_in_view);
+$window.trigger('scroll');
+
+$(window).scroll(function () {
+    $('.animation-test').each(function () {
+        var imagePos = $(this).offset().top;
+        var imageHeight = $(this).height();
+        var topOfWindow = $(window).scrollTop();
+
+
+        if (imagePos < topOfWindow + imageHeight && imagePos + imageHeight > topOfWindow) {
+            $(this).addClass("enemy");
+        } else {
+            $(this).removeClass("enemy");
+        }
+
+    });
+});
+$('.element-to-hide').css('visibility', 'hidden');
+
 
 
     </script>
