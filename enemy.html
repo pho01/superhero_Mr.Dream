@@ -1,0 +1,228 @@
+<!doctype html>
+
+<html>
+ <head>
+  <title>Mr.Dream</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+
+</head>
+
+<body>
+  <style media="screen">
+  body{
+    background-image: url(night.jpg);
+    background-repeat: repeat;
+    display:block;
+    justify-content: center;
+  }
+
+  </style>
+
+<div class="objective">
+  The event first happened in late 1996, a woman’s sweet dream was interrupted while she was sleeping at the midnight, then, she saw her sweet dream was eaten by a human-like something. After that, more and more similar situations were reported to the police successively. Therefore, National Security Agency assigned special detective PeiJung to deal with this freak condition. 21 years have passed away though, Mr.Dream has not even caught once. However, detective PeiJung gets the profound understanding toward Mr.Dream based on the 21 years research.
+
+</div>
+
+<div class="container cf">
+  <div class="animation-element bounce-up cf">
+    <div class="subject">
+    <h5 class="title">ENEMY</h5>
+    <div class="content">
+      People who stay up late, especially the increasing number of younger people who don’t sleep at night.
+    The phenomenon not only gains the risk he exposes himself in front of human being during the task, but also he will lose his energy source.
+    </div>
+    </div>
+  </div>
+  </div>
+
+
+<div class="container cf">
+  <div class="animation-element bounce-up cf">
+    <div class="subject">
+    <div class="content" style="margin-bottom:20%;margin-top:10%;">
+      <div class="enemyimage">
+        <div class="animation-test element-to-hide">
+      <img src="enemy-1.png" class="enemy" alt="enemy-img" style="width:30%;height:auto;">
+      <img src="enemy-2.png" class="enemy" alt="enemy-img" style="width:30%;height:auto;margin-left:-5%;">
+      <img src="enemy-3.png" class="enemy" alt="enemy-img" style="width:44%;height:auto;margin-left:-4%;margin-bottom:-4%;"></div>
+        </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+</div>
+
+<div class="animation">
+  <img src="posterman.png" class="posterman">
+  <img src="posterman2.png" class="posterman2">
+  <style>
+  .posterman{
+    width:25%;
+    height:auto;
+    position:absolute;
+    animation: flow 20s infinite linear;
+  }
+  .posterman2{
+    width:25%;
+    height:auto;
+    position:absolute;
+    animation: flow2 20s infinite linear;
+  }
+  @keyframes flow {
+    0%{
+      top:40%;
+      left:100%;
+    }
+    20%{
+      top:5%;
+      left:50%;
+    }
+    40%{
+      top:20%;
+      left:-30%;
+    }
+    50%{
+      top:50%;
+      left:-30%;
+    }
+    70%{
+      top:100%;
+      left:-100%;
+    }
+    90%{
+      top:100%;
+      left:-100%;
+
+    }
+    100%{
+      top:50%;
+      left:-100%;
+    }
+  }
+  @keyframes flow2 {
+    0%{
+      top:0;
+      left:-100%;
+    }
+    20%{
+      top:0%;
+      left:-100%;
+    }
+    45%{
+      top:20%;
+      left:0;
+    }
+    55%{
+      top:70%;
+      left:10%;
+    }
+    70%{
+      top:100%;
+      left:30%;
+    }
+    90%{
+      top:120%;
+      left:100%;
+
+    }
+    100%{
+      top:120%;
+      left:110%;
+    }
+  }
+</style>
+
+</div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+    function autoType(elementClass, typingSpeed){
+    var thhis = $(elementClass);
+    thhis.css({
+     "position": "relative",
+     "display": "inline-block"
+    });
+   thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+   thhis = thhis.find(".text-js");
+   var text = thhis.text().trim().split('');
+   var amntOfChars = text.length;
+   var newString = "";
+   thhis.text("|");
+   setTimeout(function(){
+    thhis.css("opacity",1);
+    thhis.prev().removeAttr("style");
+    thhis.text("");
+    for(var i = 0; i < amntOfChars; i++){
+      (function(i,char){
+        setTimeout(function() {
+          newString += char;
+          thhis.text(newString);
+        },i*typingSpeed);
+      })(i+1,text[i]);
+    }
+  },1500);
+}
+$(document).ready(function(){
+  autoType(".type-js",200);
+});
+
+var $animation_elements = $('.animation-element');
+var $window = $(window);
+
+function check_if_in_view() {
+  var window_height = $window.height();
+  var window_top_position = $window.scrollTop();
+  var window_bottom_position = (window_top_position + window_height);
+
+  $.each($animation_elements, function() {
+    var $element = $(this);
+    var element_height = $element.outerHeight();
+    var element_top_position = $element.offset().top;
+    var element_bottom_position = (element_top_position + element_height);
+
+    //check to see if this current container is within viewport
+    if ((element_bottom_position >= window_top_position) &&
+      (element_top_position <= window_bottom_position)) {
+      $element.addClass('in-view');
+    } else {
+      $element.removeClass('in-view');
+    }
+  });
+}
+
+$window.on('scroll resize', check_if_in_view);
+$window.trigger('scroll');
+
+$(window).scroll(function () {
+    $('.animation-test').each(function () {
+        var imagePos = $(this).offset().top;
+        var imageHeight = $(this).height();
+        var topOfWindow = $(window).scrollTop();
+
+
+        if (imagePos < topOfWindow + imageHeight && imagePos + imageHeight > topOfWindow) {
+            $(this).addClass("enemy");
+        } else {
+            $(this).removeClass("enemy");
+        }
+
+    });
+});
+$('.element-to-hide').css('visibility', 'hidden');
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
