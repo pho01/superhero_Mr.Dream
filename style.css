@@ -2,12 +2,84 @@ html,body{
   width:100%;
 }
 
+
 .logo{
   width:30%;
   height:auto;
   position:absolute;
   margin-top:14%;
   left:18%;
+}
+
+.objective{
+  color:#ffb649;
+  font-size: 12pt;
+  text-align: center;
+  font-family: "Gill Sans";
+  font-weight: lighter;
+  letter-spacing: 1.5pt;
+  width:60%;
+  margin-left: 20%;
+  line-height: 25pt;
+  margin-top: 10%;
+  border-bottom: .5pt solid #ffb649;
+  padding-top: 25pt;
+  padding-bottom: 25pt;
+}
+@keyframes one {
+  0%{
+    transform: translate(20pt,0);
+  }
+  50%{
+    transform: translate(-40pt,0);
+  }
+  100%{
+    transform: translate(0,0);
+  }
+}
+@keyframes two {
+  0%{
+    transform: translate(-100pt,0);
+  }
+  50%{
+    transform: translate(5pt,0);
+  }
+  100%{
+    transform: translate(-80pt,0);
+  }
+}
+@keyframes three {
+  0%{
+    transform: translate(5pt,0);
+  }
+  50%{
+    transform: translate(-100pt,0);
+  }
+  100%{
+    transform: translate(-5pt,0);
+  }
+}
+@keyframes four {
+  0%{
+    transform: translate(-100pt,0);
+  }
+  50%{
+    transform: translate(-160pt,0);
+  }
+  100%{
+    transform: translate(-40pt,0);
+  }
+}
+@keyframes five {
+  0%{
+    transform: translate(-40pt,0);
+  }
+  50%{
+    transform: translate(20pt,0);
+  }
+  100%{
+    transform: translate(-20pt,0);
+  }
 }
 
 .text-js{
@@ -88,13 +160,13 @@ html,body{
   margin: 0% 1.33% 2.66% 1.33%;
   background: #18223d;
   padding: 15px;
-  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
-  border: solid 1px #18223d;
 }
 
 h5{
   color:white;
   letter-spacing: 3pt;
+  text-align: center;
+  margin-top: 10%;
 }
 
 .content{
@@ -107,6 +179,7 @@ h5{
   font-size: 11pt;
   line-height: 18pt;
   font-weight: lighter;
+  text-align: left;
 }
 
 .enemyimage{
@@ -249,7 +322,7 @@ h2{
   display: block;
   text-align: right;
 }
-li{
+li .textp{
   font-family: "Gill Sans";
   font-size: 12pt;
   list-style-type: none;

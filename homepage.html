@@ -1,0 +1,157 @@
+<!doctype html>
+
+<html>
+ <head>
+  <title>Mr.Dream</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+
+<div>
+  <style media="screen">
+  body{
+    background-image: url(night.jpg);
+    background-repeat: repeat;
+    display:block;
+    justify-content: center;
+  }
+
+  </style>
+  <a class="logolink">
+  <img src="web-gif.gif" class="logo">
+</a>
+<div class="type-js headline">
+  <h1 class="text-js">Dr.Dream</h1>
+</div>
+
+<div class="navigation">
+  <ul CLASS="navi">
+    <style media="screen">
+      .navigation{
+        position:absolute;
+        top:40%;
+        left:90%;
+      }
+      .navi{
+        color:#182544;
+        width:250pt;
+      }
+      .navi-li{
+        list-style-type: none;
+        font-family: "Gill Sans";
+        font-size: 10pt;
+        font-weight: lighter;
+        letter-spacing: 1pt;
+        padding-top:10pt;
+        padding-bottom:10pt;
+        padding-left: 10pt;
+        padding-right: 5pt;
+        background-color: #f4bc42;
+        margin:10pt;
+      }
+      .navi-li:hover{
+        background-color:#ff9c33;
+      }
+      .W:hover{
+        color:white;
+      }
+    </style>
+    <li class="navi-li" style="animation:one infinite 4s linear alternate-reverse;"><a href="story.html" class="W">STORY</a></li>
+    <li class="navi-li" style="animation:two infinite 5s linear alternate-reverse;"><a href="city.html" class="W">CITY OF RESIDENCE</a></li>
+    <li class="navi-li" style="animation:three infinite 3s linear alternate-reverse;"><a href="index.html" class="W">SUPERPOWER</a></li>
+    <li class="navi-li" style="animation:four infinite 4s linear alternate-reverse;"><a href="index.html" class="W">PERSONALITY ANALYSIS</a></li>
+    <li class="navi-li" style="animation:five infinite 3s linear alternate-reverse;"><a href="index.html" class="W">ENEMY</a></li>
+  </ul>
+</div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+    function autoType(elementClass, typingSpeed){
+    var thhis = $(elementClass);
+    thhis.css({
+     "position": "relative",
+     "display": "inline-block"
+    });
+   thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+   thhis = thhis.find(".text-js");
+   var text = thhis.text().trim().split('');
+   var amntOfChars = text.length;
+   var newString = "";
+   thhis.text("|");
+   setTimeout(function(){
+    thhis.css("opacity",1);
+    thhis.prev().removeAttr("style");
+    thhis.text("");
+    for(var i = 0; i < amntOfChars; i++){
+      (function(i,char){
+        setTimeout(function() {
+          newString += char;
+          thhis.text(newString);
+        },i*typingSpeed);
+      })(i+1,text[i]);
+    }
+  },1500);
+}
+$(document).ready(function(){
+  autoType(".type-js",200);
+});
+
+var $animation_elements = $('.animation-element');
+var $window = $(window);
+
+function check_if_in_view() {
+  var window_height = $window.height();
+  var window_top_position = $window.scrollTop();
+  var window_bottom_position = (window_top_position + window_height);
+
+  $.each($animation_elements, function() {
+    var $element = $(this);
+    var element_height = $element.outerHeight();
+    var element_top_position = $element.offset().top;
+    var element_bottom_position = (element_top_position + element_height);
+
+    //check to see if this current container is within viewport
+    if ((element_bottom_position >= window_top_position) &&
+      (element_top_position <= window_bottom_position)) {
+      $element.addClass('in-view');
+    } else {
+      $element.removeClass('in-view');
+    }
+  });
+}
+
+$window.on('scroll resize', check_if_in_view);
+$window.trigger('scroll');
+
+$(window).scroll(function () {
+    $('.animation-test').each(function () {
+        var imagePos = $(this).offset().top;
+        var imageHeight = $(this).height();
+        var topOfWindow = $(window).scrollTop();
+
+
+        if (imagePos < topOfWindow + imageHeight && imagePos + imageHeight > topOfWindow) {
+            $(this).addClass("enemy");
+        } else {
+            $(this).removeClass("enemy");
+        }
+
+    });
+});
+$('.element-to-hide').css('visibility', 'hidden');
+
+
+
+
+
+    </script>
+
+</div>
+</body>
+
+</html>
