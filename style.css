@@ -21,7 +21,7 @@ html,body{
   width:60%;
   margin-left: 20%;
   line-height: 25pt;
-  margin-top: 10%;
+  margin-top: 5%;
   border-bottom: .5pt solid #ffb649;
   padding-top: 25pt;
   padding-bottom: 25pt;
@@ -64,7 +64,7 @@ html,body{
     transform: translate(-100pt,0);
   }
   50%{
-    transform: translate(-160pt,0);
+    transform: translate(-140pt,0);
   }
   100%{
     transform: translate(-40pt,0);
